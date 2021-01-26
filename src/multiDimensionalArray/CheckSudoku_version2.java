@@ -37,57 +37,46 @@ public class CheckSudoku_version2 {
 
         int count_row = 1;
         int count_col = 1;
-
-
-
         int i = 0;
         int j = 0;
-        for (int count = 0; count < 4; count++) // цикл на обход массивов размером num * num
+        for (int count = 0; count < size; count++) // цикл на обход массивов размером num * num
         {
-            for (int count_j = 0; count_j < 2; count_j++) // цикл переключения j (строчки)
+            for (int count_j = 0; count_j < num; count_j++) // цикл переключения j (строчки)
             {
-                for (int count_i = 0; count_i < 2; count_i++) // цикл переключения i (колонки)
+                for (int count_i = 0; count_i < num; count_i++) // цикл переключения i (колонки)
                 {
                     System.out.print(map[j][i] + " ");
-                    if (i == Math.pow(num, count_col) - 1) // i == 1, 3
+                    if (i == num * count_col - 1) // если i == крайнему столбцу в колонне
                     {
-                        if (j == Math.pow(num, count_row) - 1) // j == 1, 3
+                        if (j == num * count_row - 1) // если j == крайней строке в ряду
                         {
-                            if (i == (num * num - 1))
+                            if (i == (num * num - 1)) // если i == крайнему столбцу в массиве
                             {
                                 i = 0;
-                                count_row++;
-                                count_col = 1;
+                                count_row++; // увеличиваем счетчик ряда
+                                count_col = 1; // скручиваем счетчик колонны до самой первой
                             }
                             else {
                                 i++;
-                                count_col++;
+                                count_col++; // увеличиваем счетчик колонны
                             }
                         }
                         else
-                            i = i - (num - 1);
+                            i = i - (num - 1); // передвигает i в самый первый столбец колонны
                     }
                     else
                         i++;
                 }
                 System.out.println();
-                if (j == Math.pow(num, count_row) - 1) // j == 1, 3
+                if (j == num * count_row - 1) // если j == крайней строке в ряду
                 {
-                    j = j - (num - 1);
+                    j = j - (num - 1); // передвигает j в самую первую (верхнюю) строку ряда
                 }
                 else
                     j++;
             }
+            System.out.println();
         }
-
-//        for (int i = 0; i < size; i++)
-//        {
-//            for (int j = 0; j < size; j++)
-//            {
-//                System.out.print(map[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
         return map;
     }
 
