@@ -35,17 +35,88 @@ public class CheckSudoku_version2 {
             }
         }
 
+//        int count_row = 1;
+//        int count_col = 1;
+//        int i = 0;
+//        int j = 0;
+//
+//        for (int count = 0; count < size; count++) // цикл на обход массивов размером num * num
+//        {
+//            for (int count_j = 0; count_j < num; count_j++) // цикл переключения j (строчки)
+//            {
+//                for (int count_i = 0; count_i < num; count_i++) // цикл переключения i (колонки)
+//                {
+//                    System.out.print(map[j][i] + " ");
+//                    if (i == num * count_col - 1) // если i == крайнему столбцу в колонне
+//                    {
+//                        if (j == num * count_row - 1) // если j == крайней строке в ряду
+//                        {
+//                            if (i == (num * num - 1)) // если i == крайнему столбцу в массиве
+//                            {
+//                                i = 0;
+//                                count_row++; // увеличиваем счетчик ряда
+//                                count_col = 1; // скручиваем счетчик колонны до самой первой
+//                            }
+//                            else {
+//                                i++;
+//                                count_col++; // увеличиваем счетчик колонны
+//                            }
+//                        }
+//                        else
+//                            i = i - (num - 1); // передвигает i в самый первый столбец колонны
+//                    }
+//                    else
+//                        i++;
+//                }
+//                System.out.println();
+//                if (j == num * count_row - 1) // если j == крайней строке в ряду
+//                {
+//                    j = j - (num - 1); // передвигает j в самую первую (верхнюю) строку ряда
+//                }
+//                else
+//                    j++;
+//            }
+//            System.out.println();
+//        }
+        return map;
+    }
+
+    private static int check_map(int[][] map)
+    {
+        Map<Integer, Integer> checkMap = new HashMap<>();
+
+        for (int i = 1; i <= map.length; i++)
+        {
+            checkMap.put(i, 0);
+        }
+
         int count_row = 1;
         int count_col = 1;
         int i = 0;
         int j = 0;
+        int size = map.length;
+        int num = (int)Math.sqrt(size);
         for (int count = 0; count < size; count++) // цикл на обход массивов размером num * num
         {
             for (int count_j = 0; count_j < num; count_j++) // цикл переключения j (строчки)
             {
                 for (int count_i = 0; count_i < num; count_i++) // цикл переключения i (колонки)
                 {
-                    System.out.print(map[j][i] + " ");
+ //                   System.out.print(map[j][i] + " ");
+
+                    for (Map.Entry<Integer, Integer> pair : checkMap.entrySet())
+                    {
+                        if (pair.getKey() == map[j][i])
+                        {
+                            checkMap.put(pair.getKey(), pair.getValue() + 1);
+                        }
+                        if (pair.getValue() > 1)
+                        {
+                            System.out.println("NO");
+                            return -1;
+                        }
+                    }
+
                     if (i == num * count_col - 1) // если i == крайнему столбцу в колонне
                     {
                         if (j == num * count_row - 1) // если j == крайней строке в ряду
@@ -56,7 +127,8 @@ public class CheckSudoku_version2 {
                                 count_row++; // увеличиваем счетчик ряда
                                 count_col = 1; // скручиваем счетчик колонны до самой первой
                             }
-                            else {
+                            else
+                            {
                                 i++;
                                 count_col++; // увеличиваем счетчик колонны
                             }
@@ -67,53 +139,27 @@ public class CheckSudoku_version2 {
                     else
                         i++;
                 }
-                System.out.println();
+            //    System.out.println();
                 if (j == num * count_row - 1) // если j == крайней строке в ряду
-                {
                     j = j - (num - 1); // передвигает j в самую первую (верхнюю) строку ряда
-                }
                 else
                     j++;
             }
-            System.out.println();
-        }
-        return map;
-    }
+        //    System.out.println();
 
-//    private static int check_map(int[][] map)
-//    {
-//        Map<Integer, Integer> checkMap = new HashMap<>();
-//
-//        for (int i = 1; i <= map.length; i++)
-//        {
-//            checkMap.put(i, 0);
-//        }
-//        for (int i = 0; i < map.length; i++)
-//        {
-//            for (int j = 0; j < map.length; j++)
-//            {
-//                for (Map.Entry<Integer, Integer> pair : checkMap.entrySet())
-//                {
-//                    if (pair.getKey() == map[j][i])
-//                    {
-//                        checkMap.put(pair.getKey(), pair.getValue() + 1);
-//                    }
-//                }
-//            }
-//        }
-//        for (int i = 0; i < map.length; i++)
-//        {
-//            for (int j = 0; j < map.length; j++)
-//            {
-//                int num = map[0][j];
-//            }
-//        }
+            for (int n = 1; n <= map.length; n++)
+            {
+                checkMap.put(n, 0);
+            }
+
+        }
+        System.out.println("YES");
 //        for (Map.Entry<Integer, Integer> pair : checkMap.entrySet())
 //        {
 //            System.out.println(pair.getKey() + " : " + pair.getValue());
 //        }
-//        return (0);
-//    }
+        return (0);
+    }
 
     public static void main(String[] args)
     {
@@ -122,6 +168,6 @@ public class CheckSudoku_version2 {
         {
             System.out.println("Ошибка чтения карты!");
         }
-      //  int check = check_map(map);
+        int check = check_map(map);
     }
 }
