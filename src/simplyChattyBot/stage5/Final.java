@@ -43,7 +43,7 @@ public class Final {
     }
 
     static void test() {
-        System.out.println("Let's test your programming knowledge.");
+        System.out.println("Let's simpleClasses.test your programming knowledge.");
         System.out.println("How many bytes in int?");
         System.out.println("1. 2.");
         System.out.println("2. 16.");

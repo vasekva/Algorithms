@@ -1,4 +1,4 @@
-package CoffeeMachine.stage2;
+package coffeeMachine.stage2;
 
 import java.util.Scanner;
 

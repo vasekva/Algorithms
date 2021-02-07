@@ -1,4 +1,4 @@
-package CoffeeMachine.stage6.Final;
+package coffeeMachine.stage6.Final;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -112,6 +112,7 @@ public class CoffeeMachine {
         System.out.println("I have enough resources, making you a coffee!\n");
         return true;
     }
+
     public static void action(String actions) {
         switch (actions) {
             case "buy":

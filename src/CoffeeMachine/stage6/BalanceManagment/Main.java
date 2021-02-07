@@ -1,4 +1,4 @@
-package CoffeeMachine.stage6.BalanceManagment;
+package coffeeMachine.stage6.BalanceManagment;
 
 import java.util.Scanner;
 

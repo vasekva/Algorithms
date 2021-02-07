@@ -1,4 +1,4 @@
-package CoffeeMachine.stage6;
+package coffeeMachine.stage6;
 
 class Cat {
     // write static and instance variables
