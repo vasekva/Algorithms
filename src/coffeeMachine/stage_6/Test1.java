@@ -1,4 +1,4 @@
-package coffeeMachine.stage6;
+package coffeeMachine.stage_6;
 
 public class Test1 {
 

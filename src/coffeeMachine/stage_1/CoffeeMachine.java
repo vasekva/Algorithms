@@ -1,4 +1,4 @@
-package coffeeMachine.stage1;
+package coffeeMachine.stage_1;
 
 public class CoffeeMachine {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package coffeeMachine.stage6.Final;
+package coffeeMachine.stage_6.Final;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package cinemaRoomManager;
+package cinemaRoomManager.stage_1;
 
 public class Cinema {
 
