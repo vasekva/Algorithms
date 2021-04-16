@@ -2,6 +2,19 @@ package cinemaRoomManager.stage_2;
 
 import java.util.Scanner;
 
+/**
+* STAGE 2
+*
+* Цели
+* На этом этапе нужно прочитать из входных данных два положительных целых числа:
+* количество рядов и количество мест в каждом ряду. Цена билета определяется следующими правилами:
+*
+* Если общее количество мест в экранном зале не более 60, то цена каждого билета составляет 10 долларов.
+* В большом зале билеты стоят 10 долларов за переднюю половину рядов и 8 долларов за заднюю половину.
+* Количество строк может быть нечетным, например, 9 строк.
+* В этом случае первая половина - это первые 4 ряда, а вторая половина - это оставшиеся 5 рядов.
+*/
+
 public class Cinema {
 
     private void count_max_income(int num_all_seats, int num_rows, int num_seats_in_row) {
@@ -16,32 +29,6 @@ public class Cinema {
         }
         System.out.println("Total income: ");
         System.out.println("$" + profit);
-    }
-
-    private void print_seats(int num_rows, int num_seats_in_row) {
-        System.out.println("Cinema:");
-        // цикл по строчкам
-        for (int i = 0; i < num_rows + 1; i++) {
-            // цикл по столбцам
-            for (int j = 0; j < num_seats_in_row + 1; j++) {
-                if (i == 0) {
-                    if (j == 0)
-                        System.out.print(" ");
-                    else
-                        System.out.print(j);
-                } else {
-                    if (j == 0)
-                        System.out.print(i);
-                    else
-                        System.out.print("S");
-                }
-                if (j + 1 != num_seats_in_row + 1) {
-                    System.out.print(" ");
-                } else {
-                    System.out.println();
-                }
-            }
-        }
     }
 
     public static void main(String[] args) {
@@ -59,6 +46,5 @@ public class Cinema {
         scanner.close();
         num_all_seats = num_rows * num_seats_in_row;
         cinema.count_max_income(num_all_seats, num_rows, num_seats_in_row);
-//        cinema.print_seats(num_rows, num_seats_in_row);
     }
 }
